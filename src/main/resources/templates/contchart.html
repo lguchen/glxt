@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="publicpage(title='数据图表')">
+<meta charset="UTF-8">
+
+<div th:fragment="public_right">
+    <div id="public_right">
+        <div id="uchart" style="width: 480px;height: 320px;top: auto;left: 500px;"></div>
+        <script type="text/javascript">
+            $(function () {
+                var myCharts = echarts.init(document.getElementById('uchart'));
+                myCharts.setOption({
+                    color: ['#3398d8'],
+                    title: {
+                        text: '校友地区分布图'
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'shadow'
+                        }
+                    },
+                    legend: {
+                        data: ['数量']
+                    },
+                    xAxis: {
+                        data: ['数量']
+                    },
+                    yAxis: {},
+                    series: [
+                        {
+                            name: '数量',
+                            type: 'bar',
+                            data: []
+                        }
+                    ]
+                });
+                //加载时显示loading动画
+                myCharts.showLoading();
+                //放x轴值的名称数组
+                var name = [];
+                //放y轴的数量数组
+                var value = [];
+
+                //利用ajax从后台给数组存值
+                $.ajax({
+                    type: "get",
+                    url: "/gochart", //请求发送到Controller list处
+                    dataType: "json", //返回数据形式为json
+                    success: function (data) {
+                        //请求成功时执行该函数内容，result即为服务器返回的json对象
+                        $(data).each(function (i, e) {
+                            name.push(e.contNative); //取出籍贯并存入数组
+                            value.push(e.value); //取出数量并存入数组
+                        });
+                        myCharts.hideLoading(); //隐藏加载动画
+                        myCharts.setOption({    //加载数据图表
+                            xAxis: {
+                                data: name
+                            },
+                            series: [{
+                                //根据名称对应到相应的系列
+                                name: '数量',
+                                type: 'bar',
+                                barWidth: '60%',
+                                data: value,
+                                itemStyle: {
+                                    normal: {
+                                        label: {
+                                            show: true,      //开启显示
+                                            position: 'top',//在上方显示
+                                            textStyle: {     //数值样式
+                                                color: 'black',
+                                                fontsize: 12
+                                            }
+                                        }
+                                    }
+                                }
+                            }]
+                        });
+                    },
+                    error: function (errorMsg) {
+                        //请求失败时执行该函数
+                        errorMsg.alert("图表请求数据失败");
+                        myCharts.hideLoading();
+                    }
+                })
+            });
+        </script>
+    </div>
+</div>
+</html>

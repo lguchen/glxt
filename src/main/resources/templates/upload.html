@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection-->
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="publicpage(title='文件上传')">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+
+</head>
+<body>
+<div th:fragment="public_right">
+    <div id="public_right">
+        <div th:if="${uploadStatus}" style="color: red" th:text="${uploadStatus}">上传成功</div>
+        <form th:action="@{/uploadFile}" method="post" enctype="multipart/form-data">
+            上传文件:&nbsp;&nbsp;
+            <input type="button" value="添加文件" onclick="add()"/>
+            <div id="file" style="margin-top: 10px;" th:value="文件上传区域"></div>
+            <input id="submit" type="submit" value="上传" style="display: none;margin-top: 10px;"/>
+        </form>
+        <script type="text/javascript">
+            function add() {
+                var innerdiv = "<div>";
+                innerdiv += "<input type='file' name='fileUpload' required='required'>" +
+                    "<input type='button' value='删除' onclick='remove(this)'>";
+                innerdiv += "</div>";
+                $("#file").append(innerdiv);
+                $("#submit").css("display", "block");
+            }
+
+            function remove(obj) {
+                $(obj).parent().remove();
+                if ($("#file div").length == 0) {
+                    $("#submit").css("display", "none");
+                }
+            }
+        </script>
+    </div>
+</div>
+</body>
+</html>

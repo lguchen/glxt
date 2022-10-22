@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection-->
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="publicpage(title='查询演示')">
+<meta charset="UTF-8">
+<div th:fragment="public_right">
+  <table class="table table-hover" style="width:80%">
+    <tr>
+      <td>编号</td>
+      <td>内容</td>
+      <td>时间</td>
+    </tr>
+    <tr th:each="i:${#numbers.sequence(1,10)}">
+      <td th:text="${i}"></td>
+      <td th:text="${new java.util.Date().getTime()}"></td>
+      <td th:text="${#dates.format(new java.util.Date().getTime(),'yyyy-MM-dd hh:mm:ss')}"></td>
+    </tr>
+  </table>
+</div>
+</html>

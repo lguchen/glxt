@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection-->
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="publicpage(title='用户修改')">
+<meta charset="UTF-8">
+<div th:fragment="public_right">
+    <table class="table table-hover" style="width:80%">
+        <form action="/update" method="get">
+            <h2>修改页面</h2>
+            <input id="id" name="id" type="hidden" th:value="${user.id}"><br><br>
+            请输入用户名:<input id="name" name="name" type="text" th:value="${user.userName}"><br><br>
+            请输入密码:<input id="pass" name="pass" type="text" th:value="${user.userPass}"><br><br>
+            请选择身份:<select id="role" name="role" style="width: 173px">
+            <option th:value="${user.userRole}" selected><p th:text="${user.userRole}"></option>
+            <option value="管理员">管理员</option>
+            <option value="普通用户">普通用户</option>
+        </select><br><br>
+            <input type="submit" value="修改"/>
+            <button name="button" onclick="javascript:history.back(-1);">返回</button>
+        </form>
+    </table>
+</div>
+</html>

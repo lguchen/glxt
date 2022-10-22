@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--压制本文件中对于thymeleaf的警告信息-->
+<!--suppress ThymeleafVariablesResolveInspection-->
+
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <title>登录页面</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css" th:href="@{/css/login.css}">
+</head>
+
+<body>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<p class="first">人事管理</p>
+<p class="second">系统</p>
+<div id="login">
+    <form action="/gologin" method="post">
+        <div class="logform" th:text="#{login.tip}">用户登录</div>
+        <div class="loginput"><span th:text="#{login.username}"> 用户名&emsp;</span><input id="name" name="name" placeholder="请输入用户名"></div>
+        <div class="loginput"><span th:text="#{login.password}">密&emsp;码&emsp;</span><input id="password" name="password" type="password" placeholder="请输入密码"></div>
+        <div class="loginput"><input type="submit" th:value="#{login.button}"登录>&nbsp<input type="reset" th:value="#{login.reset}"重置>&emsp;
+            <a href="register"><span th:text="#{login.register}"> 注册</span></a></div>
+        <div class="loginput"><span th:text="${currentYear}">2019</span>
+            -<span th:text="${currentYear}+1">2020</span>
+            <span>CopyRight</span></div>
+        <div class="loginput"><a th:href="@{/login(lang='zh_CN')}">中文</a>
+            <a th:href="@{/login(lang='en_US')}">English</a></div>
+    </form>
+</div>
+</body>
+
+</html>

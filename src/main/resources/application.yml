@@ -1,0 +1,39 @@
+spring:
+#  redis:
+#    host: 127.0.0.1
+#    port: 6379
+#    password:
+  web:
+    resources:
+      static-locations: classpath:../resources,classpath:/static/
+  #  mvc:
+  #    static-path-pattern: /static/**
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/mytest?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: root
+  messages:
+    basename: i18n.login
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+#  servlet:
+#    multipart:
+#      max-file-size: 10MB
+#      max-request-size: 50MB
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapping.xml
+
+  thymeleaf:
+    cache: false
+#  devtools:
+#    restart:
+#      enabled: false
+#server:
+#  max-http-header-size: 8192
+
+

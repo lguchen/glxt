@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection-->
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="publicpage(title='文档下载')">
+<meta charset="UTF-8">
+
+<div th:fragment="public_right">
+    <div id="public_right">
+        <h4>
+            文档下载
+        </h4>
+        <table>
+            <tr>
+                <td>bloglogo.jpg</td>
+                <td><a th:href="@{/download(filename='bloglogo.jpg')}">下载</a></td>
+            </tr>
+            <tr>
+                <td>Hive查询.pdf</td>
+                <td><a th:href="@{/download(filename='Hive查询.pdf')}">下载文件</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</html>

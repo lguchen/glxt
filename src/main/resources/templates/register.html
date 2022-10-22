@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>注册界面</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/register.css " th:href="@{/css/register.css}">
+    <script>
+        function mydata() {
+            var love = "";
+            var name = $('#name').val();
+            var password = $('#password').val();
+            var password2 = $('#password2').val();
+            var sex = $("input[name='sex']:checked").val();
+            var nativeplace = $('#native').val();
+            var hobby = $("input[name='hobby']");
+            for (i in hobby) {
+                if (hobby[i].checked) {
+                    love += hobby[i].value
+                }
+            }
+            // alert("用户名:" + name + " 密码:" + password + " 性别:" + sex + " 籍贯:" + nativeplace + " 爱好:" + love);
+            if (password == password2) {
+                // alert("两次密码一致");
+                $.post("/goregister", {name: name, password: password}, function (result) {
+                    if (result == true) {
+                        alert("注册成功");
+                        window.location.href = "/login";
+                    } else {
+                        alert("注册失败");
+                    }
+                })
+            } else {
+                alert("两次密码不一致");
+            }
+        }
+    </script>
+</head>
+
+<body>
+<div id="register">
+    <form>
+        <div class="logform">用户注册</div>
+        <div class="logleft">用户名</div>
+        <div class="logright"><input id="name" name="name" placeholder="请输入用户名"></div>
+        <div class="logleft">密码</div>
+        <div class="logright"><input id="password" name="password" type="password" placeholder="请输入密码"></div>
+        <div class="logleft">确认密码</div>
+        <div class="logright"><input id="password2" name="password" type="password" placeholder="请再次输入密码"></div>
+        <div class="logleft">性别</div>
+        <div class="logright">
+            <input id="male" name="sex" type="radio" value="boy" checked="checked"/>男
+            <input id="female" name="sex" type="radio" value="girl"/>女
+        </div>
+        <div class="logleft">籍贯</div>
+        <div class="logright">
+            <select id="native">
+                <option value="">请选择</option>
+                <option value="江苏">江苏</option>
+                <option value="浙江">浙江</option>
+                <option value="安徽">安徽</option>
+            </select>
+        </div>
+        <div class="logleft">爱好</div>
+        <div class="logright">
+            <input type="checkbox" name="hobby" value="上网">上网
+            <input type="checkbox" name="hobby" value="学习" checked="checked">学习
+            <input type="checkbox" name="hobby" value="唱歌">唱歌
+        </div>
+        <div class="logleft"></div>
+        <div class="logright">
+            <input type="button" value="注册" onclick="mydata()"/>
+            <input type="reset" value="重置"/>
+        </div>
+    </form>
+
+</div>
+</body>
+
+</html>

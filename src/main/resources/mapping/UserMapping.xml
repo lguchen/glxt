@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.glxt.mapper.UserMapper">
+    <select id="findAll" resultType="com.glxt.model.UserBean">
+        select *
+        from tbluser
+    </select>
+
+    <select id="login" resultType="com.glxt.model.UserBean">
+        select *
+        from tbluser
+        where userName = #{userName}
+          and userPass = #{userPass}
+    </select>
+    <insert id="register" parameterType="com.glxt.model.UserBean" useGeneratedKeys="true" keyProperty="id">
+        insert into tbluser(userName, userPass, userRole)
+        values (#{userName}, #{userPass}, #{userRole})
+    </insert>
+    <delete id="delUser" parameterType="com.glxt.model.UserBean">
+        delete
+        from tbluser
+        where id = #{id}
+    </delete>
+    <select id="findByid" resultType="com.glxt.model.UserBean">
+        select *
+        from tbluser
+        where id = #{id}
+    </select>
+    <update id="updateUser" parameterType="com.glxt.model.UserBean">
+        update tbluser
+        set userName=#{userName},
+            userPass=#{userPass},
+            userRole=#{userRole}
+        where id = #{id}
+    </update>
+    <select id="findByName" resultType="com.glxt.model.UserBean">
+        select *
+        from tbluser
+        where userName = #{userName}
+    </select>
+</mapper>
