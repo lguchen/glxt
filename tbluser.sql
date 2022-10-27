@@ -15,6 +15,7 @@ Date: 2022-10-22 20:51:54
 
 SET FOREIGN_KEY_CHECKS=0;
 
+
 -- ----------------------------
 -- Table structure for tbluser
 -- ----------------------------
