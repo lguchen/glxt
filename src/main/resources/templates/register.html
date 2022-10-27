@@ -24,16 +24,18 @@
             if (password == password2) {
                 // alert("两次密码一致");
                 $.post("/goregister", {name: name, password: password}, function (result) {
-                    if (result == true) {
+                    if (result == true && name != result.name) {
                         alert("注册成功");
                         window.location.href = "/login";
                     } else {
-                        alert("注册失败");
+                        alert("用户名存在！请重新填写");
+                        // alert("注册失败！");
                     }
                 })
             } else {
                 alert("两次密码不一致");
             }
+
         }
     </script>
 </head>

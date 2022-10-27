@@ -3,11 +3,20 @@ package com.glxt.controller;
 
 import com.glxt.model.UserBean;
 import com.glxt.service.UserService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.yaml.snakeyaml.constructor.DuplicateKeyException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.HashMap;
+import java.util.Map;
 
 
 @RestController
@@ -21,14 +30,18 @@ public class UserController {
     private UserService userServiceImpl;
 
     @PostMapping("/goregister")
-    public int goregister(UserBean users, @RequestParam("name") String uname, @RequestParam("password") String upass) {
-        System.out.println("name:" + uname + ",password:" + upass);
+    public int goregister(UserBean users, @Param("userName") String name, @RequestParam("name") String uname, @RequestParam("password") String upass) {
+//        System.out.println("name:" + uname + ",password:" + upass);
+        UserBean User = userServiceImpl.findByuser(name);
+        if (User != null) {
+            return 0;
+        }
+        //可加else可不加
         users.setUserName(uname);
         users.setUserPass(upass);
         users.setUserRole("普通用户");
-
         userServiceImpl.register(users);
         return 1;
-    }
 
+    }
 }

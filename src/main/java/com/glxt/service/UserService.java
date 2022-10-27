@@ -1,6 +1,8 @@
 package com.glxt.service;
 
 import com.glxt.model.UserBean;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -15,6 +17,7 @@ public interface UserService {
 
     public int register(UserBean users);
 
+
     public int delUser(int id);
 
     public UserBean findByid(int id);
@@ -22,5 +25,8 @@ public interface UserService {
     public int updateUser(UserBean users);
 
     public UserBean findByuser(String userName);
+
+
+
 }
 

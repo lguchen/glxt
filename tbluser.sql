@@ -31,9 +31,9 @@ CREATE TABLE `tbluser` (
 -- ----------------------------
 -- Records of tbluser
 -- ----------------------------
-INSERT INTO `tbluser` VALUES ('1', 'aa', '123', '普通用户');
-INSERT INTO `tbluser` VALUES ('2', 'admin', '123', '管理员');
-INSERT INTO `tbluser` VALUES ('3', 'cc', '123', '普通用户');
-INSERT INTO `tbluser` VALUES ('4', 'zhy', '123', '管理员');
+INSERT INTO `tbluser` VALUES ('1', 'a', '123', '普通用户');
+INSERT INTO `tbluser` VALUES ('2', 'admin', 'admin', '管理员');
+INSERT INTO `tbluser` VALUES ('3', 'b', '123', '普通用户');
+INSERT INTO `tbluser` VALUES ('4', 'c', '123', '管理员');
 INSERT INTO `tbluser` VALUES ('5', 'd', 'd', '普通用户');
-INSERT INTO `tbluser` VALUES ('8', 'a', 'a', '普通用户');
+INSERT INTO `tbluser` VALUES ('6', 'luo', 'luo', '普通用户');
