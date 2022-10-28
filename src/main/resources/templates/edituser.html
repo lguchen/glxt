@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <!--suppress ThymeleafVariablesResolveInspection-->
-
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="publicpage(title='用户编辑')">
-<meta charset="UTF-8">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
 <div th:fragment="public_right">
+    <script type="text/javascript" th:inline="javascript" th:each="User:${Result}">
+        function del() {
+            var msg = "确定要删除吗？";
+            var link = "@{'/godel/'+${User.id}}"
+            if (confirm(msg) === true) {
+                $('#onclick').html('<a href="' + link + '">删除</a>');
+                alert('删除成功');
+            } else {
+                return false;
+            }
+        }
+    </script>
     <table class="table table-hover" style="width:80%">
         <tr>
             <td>编号</td>
@@ -17,10 +35,13 @@
             <td th:text="${User.userName}"></td>
             <td th:text="${User.userPass}"></td>
             <td th:text="${User.userRole}"></td>
-            <td><a th:href="@{'/godel/'+${User.id}}">删除</a>
-                <a th:href="@{'/goupdate/'+${User.id}}">修改</a>
+            <td>
+                <button><a id="onclick" onclick="javascript:return del();" th:href="@{'/godel/'+${User.id}}">删除</a>
+                </button>
+                <button><a th:href="@{'/goupdate/'+${User.id}}">修改</a></button>
             </td>
         </tr>
     </table>
 </div>
+</body>
 </html>
