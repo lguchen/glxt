@@ -18,10 +18,13 @@
 <div id="login">
     <form action="/gologin" method="post">
         <div class="logform" th:text="#{login.tip}">用户登录</div>
-        <div class="loginput"><span th:text="#{login.username}"> 用户名&emsp;</span><input id="name" name="name" placeholder="请输入用户名"></div>
-        <div class="loginput"><span th:text="#{login.password}">密&emsp;码&emsp;</span><input id="password" name="password" type="password" placeholder="请输入密码"></div>
-        <div class="loginput"><input type="submit" th:value="#{login.button}"登录>&nbsp<input type="reset" th:value="#{login.reset}"重置>&emsp;
-            <a href="register"><span th:text="#{login.register}"> 注册</span></a></div>
+        <div class="loginput"><span th:text="#{login.username}"> 用户名&emsp;</span><input id="name" name="name"
+                                                                                        th:placeholder="#{login.name}">
+        </div>
+        <div class="loginput"><span th:text="#{login.password}">密&emsp;码</span><input id="password" name="password" type="password" th:placeholder="#{login.pass}"></div>
+        <div class="loginput"><input type="submit" th:value="#{login.button}" 登录>&nbsp<input type="reset" th:value="#{login.reset}" 重置>&emsp;
+            <button><a href="register"><span th:text="#{login.register}"> 注册</span></a></button>
+        </div>
         <div class="loginput"><span th:text="${currentYear}">2019</span>
             -<span th:text="${currentYear}+1">2020</span>
             <span>CopyRight</span></div>
@@ -30,5 +33,4 @@
     </form>
 </div>
 </body>
-
 </html>

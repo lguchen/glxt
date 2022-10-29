@@ -2,6 +2,17 @@ a {
     text-decoration: none;
     color: #1512ead3;
 }
+.bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    float: left;
+    border: 0;
+    overflow: hidden;
+    z-index: -100;
+}
 
 #register {
     width: 350px;
