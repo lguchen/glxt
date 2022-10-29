@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../static/css/table.css" th:href="@{/css/table.css}">
+
     <link rel="stylesheet" href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap-theme.css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/table.css" th:href="@{/css/table.css}">
     <script th:src="@{/js/echarts.js}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -52,7 +53,9 @@
     <!--    <div class="container-fluid">-->
     <div class="navbar-header">
         <a class="navbar-brand" href="#"></a>
-        <img class="img-thumbnail" src="../static/img/logo.png" th:src="@{/img/logo.png}" style="overflow: hidden;height: 2cm;width: 3cm"/>
+        <img class="img-thumbnail" src="../static/img/logo.png" th:src="@{/img/logo.png}"
+             style="overflow: hidden;height: 2cm;width: 3cm ;border-radius:26px;background-color: transparent;
+    border: none;"/>
     </div>
     <!--</div>-->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -135,5 +138,10 @@
         </div>
     </div>
 </div>
+<link rel="stylesheet" type="text/css" href="../static/css/styles.8cec5ded.css" th:href="@{/css/styles.8cec5ded.css}">
+<!--<script type="text/javascript" src="../static/js/particle.js" th:src="@{/js/particle.js}"></script>-->
+<iframe class="bg" title="myIframe"
+        src="../static/css/test.html" th:src="@{/css/test.html}"
+        marginwidth="0" marginheight="0"></iframe>
 </body>
 </html>
