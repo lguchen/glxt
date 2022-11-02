@@ -35,7 +35,6 @@ a {
     border-radius: 15px;
     margin: 350px auto;
     background: #c5e6f8aa;
-
 }
 
 .logform {
@@ -57,17 +56,29 @@ a {
     text-align: center;
     line-height: 50px;
 }
-#name,#password{
-    outline:none;
+
+#name, #password {
+    outline: none;
     border-radius: 20px;
     border-color: deepskyblue;
     background-color: transparent;
+    color: #2c3d8f;
 }
-#name::placeholder,#password::placeholder{
-    color: #0f1dd0;
+
+#name::placeholder, #password::placeholder {
+    color: #07645a;
     text-align: center;
 }
-input,button{
+
+input, button {
     background-color: transparent;
     border-color: aqua;
 }
+
+input:focus::placeholder,
+input:focus::placeholder {
+    opacity: 0;
+}
+
+
+

@@ -13,10 +13,10 @@
     <script type="text/javascript" th:inline="javascript" th:each="User:${Result}">
         function del() {
             var msg = "确定要删除吗？";
-            var link = "@{'/godel/'+${User.id}}"
+            var link = "@{'/godel/'+${User.id}}";
             if (confirm(msg) === true) {
                 $('#onclick').html('<a href="' + link + '">删除</a>');
-                alert('删除成功');
+                // alert('删除成功');
             } else {
                 return false;
             }

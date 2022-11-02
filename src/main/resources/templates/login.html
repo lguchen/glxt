@@ -23,7 +23,7 @@
         </div>
         <div class="loginput"><span th:text="#{login.password}">密&emsp;码</span><input id="password" name="password" type="password" th:placeholder="#{login.pass}"></div>
         <div class="loginput"><input type="submit" th:value="#{login.button}" 登录>&nbsp<input type="reset" th:value="#{login.reset}" 重置>&emsp;
-            <button><a href="register"><span th:text="#{login.register}"> 注册</span></a></button>
+            <a href="register"><button type="button" th:text="#{login.register}">注册</button></a>
         </div>
         <div class="loginput"><span th:text="${currentYear}">2019</span>
             -<span th:text="${currentYear}+1">2020</span>

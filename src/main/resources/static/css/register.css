@@ -54,65 +54,23 @@ a {
     line-height: 40px;
     float: left;
     clear: right;
-    /* background: #ff0000; */
 }
-
-/* input[type=checkbox] {
-    cursor: pointer;
-    position: relative;
-    width: 15px;
-    height: 15px;
-    font-size: 14px;
-}
-
-input[type=checkbox]::after {
-    position: absolute;
-    top: 0;
-    color: #000;
-    width: 15px;
-    height: 15px;
-    display: inline-block;
-    visibility: visible;
-    padding-left: 0px;
-    text-align: center;
-    content: ' ';
-    border-radius: 3px
-}
-
-input[type=checkbox]:checked::after {
-    content: "✓";
-    color: #fff;
-    font-size: 12px;
-    font-weight: bold;
-    background-color: #1418ec;
-}
-
-input[type="radio"]::before {
-    content: " ";
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 1px solid #999999;
-    margin-right: 0.2rem;
-    box-sizing: border-box;
-    margin-top: -0.1rem;
-}
-
-input[type="radio"]:checked::before {
-    background-color: #1418ec;
-
-    border: 1px solid #1418ec;
-}
-
-input[type="radio"] {
-    position: relative;
-    clip: rect(0, 0, 0, 0);
-} */
 
 body {
     background: url(../img/register.jpg);
     background-repeat: repeat;
     background-size: cover;
     text-align: center
+}
+input {
+    background-color: transparent;
+    border-color: aqua;
+    border-radius: 20px;
+    outline:none;
+    color: #2c3d8f;
+}
+
+input:focus::placeholder,
+input:focus::placeholder {
+    opacity: 0;
 }
