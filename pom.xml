@@ -18,6 +18,7 @@
         <java.version>17</java.version>
         <mybatis.version>2.2.0</mybatis.version>
         <commens-io.version>2.6</commens-io.version>
+        <mysql.version>8.0.26</mysql.version>
     </properties>
     <dependencies>
         <dependency>
