@@ -1,19 +1,14 @@
 package com.glxt.service;
 
 import com.glxt.model.UserBean;
-import org.springframework.dao.DataAccessException;
-import org.springframework.dao.DuplicateKeyException;
-import org.springframework.stereotype.Component;
-
+import org.apache.ibatis.annotations.Param;
 import java.util.List;
-import java.util.Map;
-
 
 public interface UserService {
 
     public List<UserBean> findall();
 
-    public UserBean login(String userName, String userPass);
+    public UserBean login(@Param("userName") String userName, @Param("userPass") String userPass);
 
     public int register(UserBean users);
 
