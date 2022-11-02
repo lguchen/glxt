@@ -14,7 +14,7 @@
 <body>
 <div th:fragment="public_right">
     <div id="public_right">
-        <div th:if="${uploadStatus}" style="color: red" th:text="${uploadStatus}">上传成功</div>
+        <div th:if="${uploadStatus}" style="color: black" th:text="${uploadStatus}">上传成功</div>
         <form th:action="@{/uploadFile}" method="post" enctype="multipart/form-data">
             上传文件:&nbsp;&nbsp;
             <input type="button" value="添加文件" onclick="add()"/>
