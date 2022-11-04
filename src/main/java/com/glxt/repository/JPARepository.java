@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface JPARepository extends JpaRepository<JPABean, Integer> {
-//    @Cacheable(cacheNames = "findById")
+    @Cacheable(cacheNames = "findById")
     Optional<JPABean> findById(int id);
 
     //按用户名字段查询的接口

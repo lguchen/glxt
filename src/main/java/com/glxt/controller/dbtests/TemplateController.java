@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Map;
@@ -32,9 +31,8 @@ public class TemplateController {
         m.addAttribute("Result", list);
         return "result";
     }
-//
-    @GetMapping("/Temp_Bean_json")
 
+    @GetMapping("/Temp_Bean_json")
     public List<UserBean> Temp_Bean_json(Model m) {
         String sql = "select * from tbluser";
         BeanPropertyRowMapper<UserBean> rowMapper = new BeanPropertyRowMapper<UserBean>(UserBean.class);
