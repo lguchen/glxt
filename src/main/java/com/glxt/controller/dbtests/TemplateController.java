@@ -9,13 +9,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
 @Controller
 public class TemplateController {
 
-    @Autowired
+    @Resource  /* 可用@Autowired注解，@Autowired注解爆红则用 @Resource注解*/
     JdbcTemplate jdbcTemplate;
 
     @ResponseBody
