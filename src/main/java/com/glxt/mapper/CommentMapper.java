@@ -2,7 +2,6 @@ package com.glxt.mapper;
 
 import com.glxt.model.UserBean;
 import org.apache.ibatis.annotations.*;
-import org.springframework.web.bind.annotation.PathVariable;
 
 @Mapper
 public interface CommentMapper {
