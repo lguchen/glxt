@@ -34,7 +34,8 @@ public class LoginInterceptor implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
 
     }
-    public List<String> getUrl(){
+
+    public List<String> getUrl() {
         url.add("/login");
         url.add("/gologin");
         url.add("/register");

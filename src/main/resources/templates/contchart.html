@@ -32,12 +32,14 @@
                             name: '数量',
                             type: 'bar',
                             data: [],
-                            itemStyle:{
-                                normal:{
-                                    color:function (params){
-                                        const colorList = ['#b6a2de','#5ab1ef', '#61a0a8', '#d48265', '#7cfc00','#749f83', '#ca8622','#c14089','#9a7fd1','#2ec7c9','#ba55d3'];
-                                        return colorList[params.dataIndex]
+                            itemStyle: {
+                                normal: {
+                                    color: function (params) {
+                                        //注意，如果颜色太少的话，后面颜色不会自动循环，最好多定义几个颜色
+                                        const colorList = ['#b6a2de', '#5ab1ef', '#61a0a8', '#d48265', '#7cfc00', '#749f83', '#ca8622','#c14089','#9a7fd1','#2ec7c9','#ba55d3'];
+                                        return colorList[params.dataIndex];
                                     }
+
                                 }
                             }
                         }

@@ -1,8 +1,8 @@
 spring:
-#  redis:
-#    host: 127.0.0.1
-#    port: 6379
-#    password:
+  #  redis:
+  #    host: 127.0.0.1
+  #    port: 6379
+  #    password:
   web:
     resources:
       static-locations: classpath:../resources,classpath:/static/
@@ -22,17 +22,18 @@ spring:
     show-sql: true
 #  servlet:
 #    multipart:
-#      max-file-size: 10MB
-#      max-request-size: 50MB
-
+#      max-file-size: 10MB //允许上传单个文件大小
+#      max-request-size: 50MB //允许上传总文件大小
+  thymeleaf:
+    cache: false
+  devtools:
+    restart:
+      enabled: true
 mybatis:
   mapper-locations: classpath:mapping/*Mapping.xml
 
-  thymeleaf:
-    cache: false
-#  devtools:
-#    restart:
-#      enabled: false
+
+
 #server:
 #  max-http-header-size: 8192
 
