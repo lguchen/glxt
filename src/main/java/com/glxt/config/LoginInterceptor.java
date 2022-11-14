@@ -42,15 +42,6 @@ public class LoginInterceptor implements HandlerInterceptor {
         url.add("/css/**");
         url.add("/js/**");
         url.add("/img/**");
-        url.add("/update");
-        url.add("/edituser");
-        url.add("/gochart");
-        url.add("/tochart");
-        url.add("/Mybat_All");
-        url.add("/findUser");
-        url.add("/gofind");
-        url.add("/finduser");
-        url.add("/Temp_All");
         return url;
 
     }
