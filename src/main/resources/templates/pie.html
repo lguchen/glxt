@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="publicpage(title='饼图')">
+<meta charset="UTF-8">
+
+<div th:fragment="public_right">
+    <div id="public_right">
+        <div id="pie"  style="width: 480px;height: 320px;top: auto;left: 400px;"></div>
+        <script type="text/javascript">
+            $(function () {
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('pie'));
+                // 指定图表的配置项和数据
+                var name = [];
+                var value = [];
+                //数据加载完之前先显示一段简单的loading动画
+                myChart.showLoading();
+                $.ajax({
+                    type: "get",
+                    url: "/gochart",
+                    dataType: "json",        //返回数据形式为json
+                    success: function (data) {
+                        //请求成功时执行该函数内容，data即为服务器返回的json对象
+                        for (var i=0;i<data.length;i++){
+                            name.push(data[i].contNative);
+                            value[i] = {value: data[i].value, name: data[i].contNative};
+                        }
+                            myChart.hideLoading();    //隐藏加载动画
+                            myChart.setOption(
+                                {
+                                    title: {
+                                        text: '校友地区分布',
+                                        x: 'left',
+                                        textStyle:{
+                                            color:'#faf6f6'
+                                        }
+                                    },
+                                    tooltip: {
+                                        trigger: 'item',
+                                        formatter: "{a} {b} : {c} <br> {d}%"
+                                    },
+                                    legend: {
+                                        orient: 'vertical', // 垂直显示 horizontal水平显示
+                                        left: 'right',
+                                        data: name,
+                                        textStyle:{
+                                            color:'#ffffff'
+                                        }
+                                    },
+                                    series: [
+                                        {
+                                            name: name,
+                                            type: 'pie',
+                                            radius: '70%',
+                                            center: ['50%', '60%'],
+                                            data: value,
+                                            label:{
+                                                formatter: '{a} {b}:{c}\n({d}%)',
+                                            }
+                                        },
+                                    ]
+                                }
+                            );
+                    },
+                    error: function (errorMsg) {
+                        //请求失败时执行该函数
+                        alert("图表请求数据失败!");
+                        myChart.hideLoading();
+                    }
+                });//end ajax
+
+            });//刷新方法结束
+
+        </script>
+    </div>
+    <a><a href="/topie" style="position: absolute;left: 80%" >饼图</a></a>
+    <a><a href="/tochart">柱状图</a></a> <!--同侧在style加入position: absolute,left: 77%-->
+</div>
+</html>

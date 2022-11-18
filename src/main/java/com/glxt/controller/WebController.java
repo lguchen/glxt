@@ -118,8 +118,13 @@ public class WebController {
 
         List UserList = contactServiceImpl.contChart();
         m.addAttribute("Result", UserList);
-        System.out.println(UserList);
+//        System.out.println(UserList);
         return UserList;
+    }
+
+    @GetMapping("/topie")
+    public String topie(){
+        return "pie";
     }
 }
 
