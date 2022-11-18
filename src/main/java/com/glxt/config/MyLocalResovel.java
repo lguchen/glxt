@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Locale;
 
 @Configuration
-public class MyLocalResovel implements LocaleResolver{
+public class MyLocalResovel implements LocaleResolver {
 
-    //自定义区域解析方式
+    // 自定义区域解析方式
     @Override
     public Locale resolveLocale(HttpServletRequest httpServletRequest) {
 //获取页面手动切换传递的语言参数lang
@@ -33,12 +33,14 @@ public class MyLocalResovel implements LocaleResolver{
         }
         return locale;
     }
+
     @Override
     public void setLocale(HttpServletRequest httpServletRequest, @Nullable HttpServletResponse httpServletResponse, @Nullable Locale locale) {
     }
+
     //将自定义的MyLocalResovel类重新注册为一个类型LocaleResolver的Bean组件
     @Bean
-    public LocaleResolver localeResolver(){
+    public LocaleResolver localeResolver() {
         return new MyLocalResovel();
     }
 }

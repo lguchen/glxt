@@ -14,7 +14,6 @@ import java.util.List;
  * @author luo
  * @date 2022年9月25日 18:42
  */
-
 @Controller
 public class MybatisController {
     @Autowired
