@@ -14,7 +14,7 @@
                     title: {
                         text: '校友地区分布图',
                         textStyle: {
-                            color:'#ffffff'
+                            color: '#ffffff'
                         }
                     },
                     tooltip: {
@@ -26,22 +26,23 @@
                     legend: {
                         data: ['数量'],
                         textStyle: {
-                            color:'#ffffff'
+                            color: '#ffffff'
                         }
                     },
                     xAxis: {
                         data: ['数量'],
-                        axisLabel:{
-                            textStyle:{
+                        axisLabel: {
+                            interval: 0, //x轴标签全部显示，不间隔
+                            textStyle: {
                                 show: true,
-                                color:'#ffffff'
+                                color: '#ffffff'
                             }
                         }
                     },
                     yAxis: {
                         axisLabel: {
-                            textStyle:{
-                                color:'#ffffff'
+                            textStyle: {
+                                color: '#ffffff'
                             }
                         }
                     },
@@ -54,7 +55,7 @@
                                 normal: {
                                     color: function (params) {
                                         //注意，如果颜色太少的话，后面颜色不会自动循环，最好多定义几个颜色
-                                        const colorList = ['#b6a2de', '#5ab1ef', '#61a0a8', '#d48265', '#7cfc00', '#749f83', '#ca8622','#c14089','#9a7fd1','#2ec7c9','#ba55d3'];
+                                        const colorList = ['#b6a2de', '#5ab1ef', '#61a0a8', '#d48265', '#7cfc00', '#749f83', '#ca8622', '#c14089', '#9a7fd1', '#2ec7c9', '#ba55d3'];
                                         return colorList[params.dataIndex];
                                     }
 
@@ -116,7 +117,7 @@
             });
         </script>
     </div>
-    <a><a href="/topie" style="position: absolute;left: 80%" >饼图</a></a>
+    <a><a href="/topie" style="position: absolute;left: 80%">饼图</a></a>
     <a><a href="/tochart">柱状图</a></a> <!--同侧在style加入position: absolute,left: 77%-->
 </div>
 </html>
