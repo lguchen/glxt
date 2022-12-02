@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -33,7 +34,7 @@ class GlxtApplicationTests {
 //        }
 //        System.out.println(conn);
 //    }
-    @Autowired
+    @Resource
     JdbcTemplate jdbcTemplate;
 
     //

@@ -108,6 +108,5 @@ public class LoginController {
         m.addAttribute("Result", User);
         return "edituser";
     }
-
 }
 
