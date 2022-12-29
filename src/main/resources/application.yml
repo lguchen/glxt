@@ -32,8 +32,10 @@ spring:
 mybatis:
   mapper-locations: classpath:mapping/*Mapping.xml
 
-
-
+# 配置日志打印级别
+logging:
+  level:
+    root: warn
 #server:
 #  max-http-header-size: 8192
 

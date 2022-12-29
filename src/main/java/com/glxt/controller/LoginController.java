@@ -2,6 +2,7 @@ package com.glxt.controller;
 
 import com.glxt.model.UserBean;
 import com.glxt.service.UserService;
+import com.glxt.utils.MD5Utils;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,8 @@ public class LoginController {
     @PostMapping("/gologin")
     public String gologin(@RequestParam("name") String username, @RequestParam("password") String userpass, HttpSession session) {
 //        if ("admin".equals(username) && "123".equals(userpass)) //用于测试
-        if (userServiceImpl.login(username, userpass) != null) {
+        String password2= MD5Utils.inputPassToFormPass(userpass);//验证加密操作
+        if (userServiceImpl.login(username, password2) != null) {
 //            return "登录成功";
             session.setAttribute("currentuser", username);
             return "index";

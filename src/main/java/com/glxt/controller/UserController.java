@@ -3,6 +3,7 @@ package com.glxt.controller;
 
 import com.glxt.model.UserBean;
 import com.glxt.service.UserService;
+import com.glxt.utils.MD5Utils;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -32,13 +33,14 @@ public class UserController {
     @PostMapping("/goregister")
     public int goregister(UserBean users, @Param("userName") String name, @RequestParam("name") String uname, @RequestParam("password") String upass) {
 //        System.out.println("name:" + uname + ",password:" + upass);
+        String pass= MD5Utils.inputPassToFormPass(upass);//密码加密操作
         UserBean User = userServiceImpl.findByuser(name);
         if (User != null) {
             return 0;
         }
         //可加else可不加
         users.setUserName(uname);
-        users.setUserPass(upass);
+        users.setUserPass(pass);
         users.setUserRole("普通用户");
         userServiceImpl.register(users);
         return 1;
